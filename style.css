@@ -1,0 +1,20 @@
+body {
+	margin: 0;
+	min-height: 100vh;
+	background-image:
+		radial-gradient(circle, #ffffff 1px, transparent 1px),
+		radial-gradient(circle, #ffffff 1px, transparent 1px),
+		linear-gradient(90deg, #7BCCE7 0% 33%, #FFC6BD 33% 67%, #FAD6A2 67% 100%);
+	background-position: 0 0, 15px 15px, 0 0;
+	background-size: 30px 30px, 30px 30px, 100% 100%;
+	background-repeat: repeat, repeat, no-repeat;
+	background-attachment: fixed;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 3rem 0.8rem 0.8rem;
+  position: relative;
+  z-index: 1;
+}
