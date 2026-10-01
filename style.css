@@ -11,10 +11,34 @@ body {
 	background-attachment: fixed;
 }
 
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
 .container {
   max-width: 900px;
   margin: auto;
   padding: 3rem 0.8rem 0.8rem;
   position: relative;
   z-index: 1;
+}
+
+.container > img[src*="logo"] {
+  display: block;
+  margin: 0 auto 1rem;
+  max-width: 250px;
+  height: auto;
+}
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.9rem;
 }
