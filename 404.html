@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting…</title>
+    <script>
+      // Don't redirect .well-known requests
+      if (!window.location.pathname.startsWith("/.well-known")) {
+        document.write('<meta http-equiv="refresh" content="0; url=/" />');
+        window.location.replace("/");
+      }
+    </script>
+    <link rel="canonical" href="/" />
+  </head>
+  <body>
+    <p>Redirecting to <a href="/">Home Page</a>…</p>
+  </body>
+</html>
