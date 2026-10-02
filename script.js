@@ -253,3 +253,52 @@ function initLoopGallery(gallery) {
 }
 
 document.querySelectorAll(".loop-gallery").forEach(initLoopGallery);
+
+// Contact Form
+const contactForm = document.querySelector("#contact-form");
+const contactDraftStorageKey = "dango-contact-draft";
+
+if (contactForm) {
+  const subjectField = contactForm.elements.namedItem("subject");
+  const contentField = contactForm.elements.namedItem("content");
+
+  try {
+    const savedDraft = JSON.parse(localStorage.getItem(contactDraftStorageKey) || "{}");
+    if (typeof savedDraft.subject === "string") subjectField.value = savedDraft.subject;
+    if (typeof savedDraft.content === "string") contentField.value = savedDraft.content;
+  } catch {}
+
+  function saveContactDraft() {
+    try {
+      localStorage.setItem(contactDraftStorageKey, JSON.stringify({
+        subject: subjectField.value,
+        content: contentField.value
+      }));
+    } catch {}
+  }
+
+  contactForm.querySelectorAll("input, textarea").forEach(field => {
+    field.addEventListener("input", () => {
+      field.setCustomValidity("");
+      saveContactDraft();
+    });
+  });
+
+  contactForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const subject = subjectField.value.trim();
+    const content = contentField.value.trim();
+
+    subjectField.setCustomValidity(subject ? "" : "Please enter a subject.");
+    contentField.setCustomValidity(content ? "" : "Please enter some content.");
+    if (!contactForm.reportValidity()) return;
+
+    const mailtoUrl = `mailto:contact@dango-cubed.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(content)}`;
+    window.open(mailtoUrl, "_blank");
+    contactForm.reset();
+    try {
+      localStorage.removeItem(contactDraftStorageKey);
+    } catch {}
+  });
+}

@@ -1,10 +1,9 @@
 {
   "images": [
     {
-      "src": "tbd.jpg",
-      "alt": "TBD",
-      "link": "https://dango-cubed.com",
-      "desc": "TBD"
+      "src": "/images/news/coming-soon.webp",
+      "alt": "Coming Soon!",
+      "link": "https://dango-cubed.com"
     }
   ]
 }

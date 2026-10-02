@@ -96,7 +96,21 @@
         </div>
         <!-- Contact Card -->
         <div class="card">
-          <div class="card-wrapper red-themed"></div>
+          <span class="card-title red-themed">Contact Us!</span>
+          <div class="card-wrapper contact-wrapper red-themed">
+            <form class="contact-form" id="contact-form">
+              <div class="contact-field contact-subject">
+                <label for="contact-subject">Subject:</label>
+                <input id="contact-subject" name="subject" type="text" maxlength="150" required>
+              </div>
+              <div class="contact-field contact-message-field">
+                <label for="contact-content">Message:</label>
+                <textarea id="contact-content" name="content" maxlength="3000" required></textarea>
+              </div>
+              <button class="contact-send" type="submit">Send</button>
+              <p class="contact-note">Contact us for business inquiries, or any other matter as you like!</p>
+            </form>
+          </div>
         </div>
       </div>
       <footer>
