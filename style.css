@@ -14,6 +14,10 @@
   --font: "GenSen Rounded TW", "Zen Maru Gothic", "Noto Sans TC", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
+html {
+  background-color: var(--dango-red);
+}
+
 @font-face {
   font-family: "GenSen Rounded TW";
   src: url("/fonts/GenSenRounded2TW-R.subset.woff2") format("woff2");
