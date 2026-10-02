@@ -61,8 +61,8 @@ body {
 
 .container > img[src*="logo"] {
   display: block;
-  margin: 0 auto 0;
-  max-width: 250px;
+  margin-inline: auto;
+  max-width: min(100%, clamp(250px, 20vw, 800px));
   height: auto;
 }
 
