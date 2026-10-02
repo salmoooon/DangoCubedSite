@@ -302,3 +302,11 @@ if (contactForm) {
     } catch {}
   });
 }
+
+// Back to Top
+document.querySelector(".back-to-top-button")?.addEventListener("click", () => {
+  const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? "auto"
+    : "smooth";
+  window.scrollTo({ top: 0, behavior });
+});

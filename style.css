@@ -4,6 +4,7 @@
   --border: #574133;
   --white: #F2F2F2;
   --shadow: rgba(0, 0, 0, 0.5);
+  --footer: #616161;
   --dango-blue: #7BCCE7;
   --dango-blue-alt: #5BB1D3;
   --dango-red: #FFC6BD;
@@ -545,7 +546,35 @@ body {
   }
 }
 
+.back-to-top-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 3rem auto 0;
+  padding: 0.25rem 0.75rem;
+  border: 0;
+  background: transparent;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.back-to-top-button svg {
+  display: block;
+  width: 3rem;
+  height: 1.5rem;
+  overflow: visible;
+}
+
+.back-to-top-button:hover {
+  transform: translateY(-0.2rem);
+}
+
 footer {
+  color: var(--footer);
   text-align: center;
   margin-top: 3rem;
   font-size: 0.8rem;
@@ -560,4 +589,14 @@ footer a {
 footer a:hover {
   color: var(--text);
   text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top-button {
+    transition: none;
+  }
+
+  .back-to-top-button:hover {
+    transform: none;
+  }
 }
