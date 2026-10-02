@@ -162,6 +162,40 @@ body {
   transition: transform 0.3s, color 0.3s;
   color: var(--themed-social-icon);
   border: 1px solid var(--border);
+  animation: social-icon-wave 3s ease-in-out infinite;
+}
+
+.social-icons a:nth-of-type(2) {
+  animation-delay: 0.25s;
+}
+
+.social-icons a:nth-of-type(3) {
+  animation-delay: 0.5s;
+}
+
+.social-icons a:nth-of-type(4) {
+  animation-delay: 0.75s;
+}
+
+.social-icons a:nth-of-type(5) {
+  animation-delay: 1s;
+}
+
+.social-icons a:nth-of-type(6) {
+  animation-delay: 1.25s;
+}
+
+.social-icons a:nth-of-type(7) {
+  animation-delay: 1.5s;
+}
+
+@keyframes social-icon-wave {
+  0%, 16.6667%, 100% {
+    translate: 0 0;
+  }
+  8.3333% {
+    translate: 0 -0.35rem;
+  }
 }
 
 .social-icons a:hover {
@@ -505,6 +539,10 @@ body {
   .loop-desc {
     transition: none;
   }
+
+  .social-icons a {
+    animation: none;
+  }
 }
 
 .contact-form {
@@ -573,7 +611,6 @@ body {
   cursor: pointer;
   border: 1px solid var(--border);
   box-shadow: 0 0 0 2px var(--white);
-  animation: button-bounce 1.2s ease-in-out infinite;
 }
 
 .contact-form :is(input, textarea, button):focus-visible {
