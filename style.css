@@ -10,7 +10,15 @@
   --dango-red-alt: #ED8380;
   --dango-yellow: #FAD6A2;
   --dango-yellow-alt: #F4B678;
-  /* --font: TBD */
+  --font: "GenSen Rounded TW", "Zen Maru Gothic", "Noto Sans TC", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@font-face {
+  font-family: "GenSen Rounded TW";
+  src: url("/fonts/GenSenRounded2TW-R.subset.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {
@@ -23,6 +31,7 @@
 body {
   margin: 0;
   min-height: 100vh;
+  line-height: 1.6;
   background-image:
     radial-gradient(circle, var(--white) 1px, transparent 1px),
     radial-gradient(circle, var(--white) 1px, transparent 1px),
@@ -53,7 +62,7 @@ body {
   --themed-title-background: var(--dango-red);
   --social-icon-color: var(--dango-red-alt);
   --card-background: var(--dango-red-alt);
-  --member-name-background: var(--dango-red);
+  --member-background: var(--dango-red);
 }
 
 .blue-themed {
@@ -61,7 +70,7 @@ body {
   --themed-title-background: var(--dango-blue);
   --social-icon-color: var(--dango-blue-alt);
   --card-background: var(--dango-blue-alt);
-  --member-name-background: var(--dango-blue);
+  --member-background: var(--dango-blue);
 }
 
 .yellow-themed {
@@ -69,7 +78,7 @@ body {
   --themed-title-background: var(--dango-yellow);
   --social-icon-color: var(--dango-yellow-alt);
   --card-background: var(--dango-yellow-alt);
-  --member-name-background: var(--dango-yellow);
+  --member-background: var(--dango-yellow);
 }
 
 .social-icons {
@@ -171,6 +180,32 @@ body {
   gap: 0.5rem;
 }
 
+.member::before {
+  content: "";
+  width: 1.5rem;
+  height: 1rem;
+  background-color: var(--white);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 80'%3E%3Cpath d='M15,15 L105,15 L60,70 Z' fill='white' stroke='white' stroke-width='10' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 80'%3E%3Cpath d='M15,15 L105,15 L60,70 Z' fill='white' stroke='white' stroke-width='10' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  animation: member-bounce 1.2s ease-in-out infinite;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes member-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.4rem);
+  }
+}
+
 .member img {
   width: clamp(4rem, 18vw, 7rem);
   aspect-ratio: 1 / 1;
@@ -178,14 +213,15 @@ body {
   object-fit: cover;
   display: block;
   border: 2px solid var(--white);
+  background-color: var(--member-background);
 }
 
 .member span {
-  background-color: var(--member-name-background);
+  background-color: var(--member-background);
   color: var(--text);
   padding: 0.2rem 0.6rem;
   border-radius: 1rem;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   white-space: nowrap;
   text-align: center;
@@ -196,7 +232,7 @@ body {
 footer {
   text-align: center;
   margin-top: 3rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 footer a {
