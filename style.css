@@ -51,6 +51,43 @@ body {
   background-attachment: fixed;
 }
 
+.language-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+
+.language-toggle-label {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+#language-checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.language-toggle-icon {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  filter: brightness(0) invert(1) drop-shadow(0 0 1px var(--border));
+  transform-origin: center;
+  rotate: 0deg;
+  transition: rotate 600ms ease-in-out;
+}
+
+#language-checkbox:checked + .language-toggle-icon {
+  rotate: 360deg;
+}
+
 .container {
   max-width: 1200px;
   margin: auto;
@@ -606,6 +643,10 @@ footer a:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .language-toggle-icon {
+    transition-duration: 1ms;
+  }
+
   .back-to-top-button {
     transition: none;
   }
