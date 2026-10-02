@@ -1,6 +1,6 @@
 :root {
   --text: #3E2A1D;
-  --links: #788ABA;
+  --links: #627bc2;
   --border: #574133;
   --white: #F2F2F2;
   --shadow: rgba(0, 0, 0, 0.5);
@@ -464,7 +464,7 @@ footer {
 
 footer a {
   color: var(--links);
-  text-decoration: none;
+  text-decoration: underline;
   font-weight: 700;
 }
 
