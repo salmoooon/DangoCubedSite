@@ -1,8 +1,9 @@
 :root {
   --text: #3E2A1D;
-  --links: #627bc2;
+  --links: #627BC2;
   --border: #574133;
   --white: #F2F2F2;
+  --wooden-stick: #E58F68;
   --shadow: rgba(0, 0, 0, 0.5);
   --footer: #616161;
   --dango-blue: #7BCCE7;
@@ -147,9 +148,8 @@ body {
   flex-shrink: 1;
   width: clamp(1rem, 6vw, 4rem);
   height: clamp(0.4rem, 2vw, 0.6rem);
-  background-color: var(--white);
+  background-color: var(--wooden-stick);
   border-radius: 2rem;
-  border: 1px solid var(--border);
 }
 
 .social-icons a {
@@ -322,6 +322,7 @@ body {
 }
 
 .member span {
+  width: 4rem;
   max-width: 100%;
   margin: 0.5rem auto 0;
   background-color: var(--themed-member-bg);
