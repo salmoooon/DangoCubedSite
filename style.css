@@ -585,10 +585,17 @@ body {
   color: var(--text);
   font: inherit;
   font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.contact-field :is(input, textarea)::placeholder {
+  color: var(--footer);
+  opacity: 0.7;
 }
 
 .contact-field input {
-  height: 1.8rem;
+  height: 2.2rem;
+  line-height: 1.5;
 }
 
 .contact-message-field {
