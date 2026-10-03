@@ -38,5 +38,6 @@ window.translationChunks.en = {
     contact_note: "Contact us for business inquiries, or any other matter as you like!",
     contact_subject_required: "Please enter a subject.",
     contact_content_required: "Please enter some content.",
-    back_to_top: "Back to Top"
+    back_to_top: "Back to Top",
+    member_lightbox_close: "Close dialog"
 };

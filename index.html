@@ -82,23 +82,23 @@
           <span class="card-title blue-themed" data-i18n="member_card_title"></span>
           <div class="card-wrapper member-wrapper blue-themed">
             <!-- Omu -->
-            <div class="member">
+            <button class="member" type="button" aria-haspopup="dialog" aria-controls="member-lightbox">
               <img class="blue-themed" src="/images/member/omu-profile.webp" alt="" data-i18n-alt="member_omu_alt">
               <span class="blue-themed" data-i18n="member_omu_name"></span>
               <small class="member-description" data-i18n="member_omu_description"></small>
-            </div>
+            </button>
             <!-- Momiji -->
-            <div class="member">
+            <button class="member" type="button" aria-haspopup="dialog" aria-controls="member-lightbox">
               <img class="red-themed" src="/images/member/momiji-profile.webp" alt="" data-i18n-alt="member_momiji_alt">
               <span class="red-themed" data-i18n="member_momiji_name"></span>
               <small class="member-description" data-i18n="member_momiji_description"></small>
-            </div>
+            </button>
             <!-- SAL -->
-            <div class="member">
+            <button class="member" type="button" aria-haspopup="dialog" aria-controls="member-lightbox">
               <img class="yellow-themed" src="/images/member/sal-profile.webp" alt="" data-i18n-alt="member_sal_alt">
               <span class="yellow-themed" data-i18n="member_sal_name"></span>
               <small class="member-description" data-i18n="member_sal_description"></small>
-            </div>
+            </button>
           </div>
         </div>
         <!-- News Card -->
@@ -149,6 +149,17 @@
         </span>
       </footer>
     </div>
+    <dialog class="member-lightbox" id="member-lightbox" aria-labelledby="member-lightbox-title">
+      <div class="member-lightbox-window">
+        <button class="member-lightbox-close" type="button" data-i18n-aria-label="member_lightbox_close">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+        </button>
+        <h2 class="member-lightbox-title" id="member-lightbox-title"></h2>
+        <div class="member-lightbox-content"></div>
+      </div>
+    </dialog>
     <script src="/translations/en.js"></script>
     <script src="/translations/tw.js"></script>
     <script src="/script.js"></script>

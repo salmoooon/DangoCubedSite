@@ -402,3 +402,37 @@ document.querySelector(".back-to-top-button")?.addEventListener("click", () => {
     : "smooth";
   window.scrollTo({ top: 0, behavior });
 });
+
+// Lightbox
+const memberLightbox = document.querySelector("#member-lightbox");
+const memberLightboxTitle = memberLightbox?.querySelector(".member-lightbox-title");
+const memberLightboxWindow = memberLightbox?.querySelector(".member-lightbox-window");
+const memberThemeClasses = ["blue-themed", "red-themed", "yellow-themed"];
+
+document.querySelectorAll(".member[aria-controls='member-lightbox']").forEach(member => {
+  member.addEventListener("click", () => {
+    const name = member.querySelector(":scope > span")?.textContent.trim();
+    const theme = memberThemeClasses.find(themeClass => member.querySelector("img")?.classList.contains(themeClass));
+    if (!memberLightbox || !memberLightboxTitle || !memberLightboxWindow || !name) return;
+
+    memberLightboxWindow.classList.remove(...memberThemeClasses);
+    if (theme) memberLightboxWindow.classList.add(theme);
+    memberLightboxTitle.textContent = name;
+    memberLightbox.showModal();
+  });
+});
+
+memberLightbox?.querySelector(".member-lightbox-close")?.addEventListener("click", () => {
+  memberLightbox.close();
+});
+
+memberLightbox?.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    event.preventDefault();
+    memberLightbox.close();
+  }
+});
+
+memberLightbox?.addEventListener("click", event => {
+  if (event.target === memberLightbox) memberLightbox.close();
+});

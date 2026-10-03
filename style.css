@@ -118,6 +118,7 @@ body {
   --themed-social-icon: var(--dango-red-alt);
   --themed-card-bg: var(--dango-red-alt);
   --themed-member-bg: var(--dango-red);
+  --themed-close-button-bg: var(--dango-red-alt);
 }
 
 .blue-themed {
@@ -126,6 +127,7 @@ body {
   --themed-social-icon: var(--dango-blue-alt);
   --themed-card-bg: var(--dango-blue-alt);
   --themed-member-bg: var(--dango-blue);
+  --themed-close-button-bg: var(--dango-blue-alt);
 }
 
 .yellow-themed {
@@ -134,6 +136,7 @@ body {
   --themed-social-icon: var(--dango-yellow-alt);
   --themed-card-bg: var(--dango-yellow-alt);
   --themed-member-bg: var(--dango-yellow);
+  --themed-close-button-bg: var(--dango-yellow-alt);
 }
 
 .social-intro-group {
@@ -325,6 +328,12 @@ body {
   align-items: center;
   min-width: 0;
   gap: 0.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
 }
 
 .member::before {
@@ -387,6 +396,68 @@ body {
   line-height: 1.2;
   text-align: center;
   white-space: normal;
+}
+
+.member-lightbox {
+  width: min(90vw, 40rem);
+  max-width: calc(100vw - 2rem);
+  max-height: 90dvh;
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+}
+
+.member-lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.member-lightbox-window {
+  position: relative;
+  max-height: 90dvh;
+  overflow: auto;
+  padding: 2rem 1.5rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--themed-member-bg);
+  box-shadow: 0 0 0 8px var(--white);
+}
+
+.member-lightbox-title {
+  margin: 0;
+  padding: 0 2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.member-lightbox-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--themed-close-button-bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.member-lightbox-close svg {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+}
+
+.member-lightbox-content {
+  min-height: 12rem;
+  margin-top: 1rem;
 }
 
 .loop-gallery {

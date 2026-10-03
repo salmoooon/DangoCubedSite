@@ -38,5 +38,6 @@ window.translationChunks.tw = {
     contact_note: "商業合作或其他事宜，歡迎隨時聯絡我們！",
     contact_subject_required: "請輸入主旨",
     contact_content_required: "請輸入內容",
-    back_to_top: "回到頂端"
+    back_to_top: "回到頂端",
+    member_lightbox_close: "關閉視窗"
 };
