@@ -12,7 +12,7 @@ window.translationChunks.tw = {
     intro_greeting: "歡迎光臨 Dango³🍡（唸作 當狗ㄎㄧㄨ ㄅㄨㄉ），網際網路上最要好的三個朋友！我們製作英文為主的內容，但也歡迎講中文的各位跟我們一起瞎搞 :D",
     intro_social_prompt: "點擊上方的社群媒體連結找到我們，或在發文時加上標籤：",
     intro_hashtag: "#DangoCubed",
-    video_card_title: "認識 Dango³！（製作中⋯）",
+    video_card_title: "隆重介紹：Dango³！（製作中⋯）",
     video_iframe_title: "Dango Cubed 介紹影片",
     member_card_title: "選擇你的 Dango！（製作中⋯）",
     member_omu_alt: "Omu 的個人頭像",
