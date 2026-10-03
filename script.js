@@ -1,3 +1,95 @@
+// Language Toggle
+const translations = window.translationChunks || {};
+const supportedLanguages = ["en", "tw"];
+const languageTags = { en: "en", tw: "zh-Hant-TW" };
+const languageStorageKey = "language";
+
+function getStoredLanguage() {
+  try {
+    const savedLanguage = localStorage.getItem(languageStorageKey);
+    return supportedLanguages.includes(savedLanguage) ? savedLanguage : "en";
+  } catch {
+    return "en";
+  }
+}
+
+let currentLanguage = getStoredLanguage();
+
+function t(key) {
+  const currentTranslations = translations[currentLanguage] || {};
+  const englishTranslations = translations.en || {};
+  return currentTranslations[key] || englishTranslations[key] || key;
+}
+
+function renderTranslatedText(element, text) {
+  let content = Array.from(element.children).find(child => child.hasAttribute("data-i18n-content"));
+  if (!content) {
+    content = document.createElement("span");
+    content.setAttribute("data-i18n-content", "");
+    const firstTextNode = Array.from(element.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
+    if (firstTextNode) {
+      firstTextNode.replaceWith(content);
+    } else {
+      element.prepend(content);
+    }
+  }
+
+  const fragment = document.createDocumentFragment();
+  text.split(/<br\s*\/?\s*>/i).forEach((part, index) => {
+    if (index > 0) fragment.appendChild(document.createElement("br"));
+    fragment.appendChild(document.createTextNode(part));
+  });
+  content.replaceChildren(fragment);
+}
+
+function applyTranslations() {
+  const translatableAttributes = [
+    ["data-i18n-placeholder", "placeholder"],
+    ["data-i18n-title", "title"],
+    ["data-i18n-aria-label", "aria-label"],
+    ["data-i18n-alt", "alt"]
+  ];
+  const selector = ["data-i18n", ...translatableAttributes.map(([dataAttribute]) => dataAttribute)]
+    .map(attribute => `[${attribute}]`)
+    .join(", ");
+
+  document.querySelectorAll(selector).forEach(element => {
+    const textKey = element.getAttribute("data-i18n");
+    if (textKey) renderTranslatedText(element, t(textKey));
+
+    translatableAttributes.forEach(([dataAttribute, attribute]) => {
+      const key = element.getAttribute(dataAttribute);
+      if (key) element.setAttribute(attribute, t(key));
+    });
+  });
+}
+
+function setLanguage(language, saveSelection = false) {
+  currentLanguage = supportedLanguages.includes(language) ? language : "en";
+  document.documentElement.lang = languageTags[currentLanguage];
+  applyTranslations();
+
+  if (saveSelection) {
+    try {
+      localStorage.setItem(languageStorageKey, currentLanguage);
+    } catch {}
+  }
+}
+
+const languageCheckbox = document.querySelector("#language-checkbox");
+const languageToggleIcon = document.querySelector(".language-toggle-icon");
+
+languageToggleIcon?.classList.add("no-transition");
+if (languageCheckbox) languageCheckbox.checked = currentLanguage === "tw";
+setLanguage(currentLanguage);
+if (languageToggleIcon) {
+  requestAnimationFrame(() => languageToggleIcon.classList.remove("no-transition"));
+}
+
+languageCheckbox?.addEventListener("change", () => {
+  setLanguage(languageCheckbox.checked ? "tw" : "en", true);
+});
+
 // Loop gallery
 function initLoopGallery(gallery) {
   const loopImageSlots = Array.from(gallery.querySelectorAll(".loop-image"));
@@ -290,8 +382,8 @@ if (contactForm) {
     const subject = subjectField.value.trim();
     const content = contentField.value.trim();
 
-    subjectField.setCustomValidity(subject ? "" : "Please enter a subject.");
-    contentField.setCustomValidity(content ? "" : "Please enter some content.");
+    subjectField.setCustomValidity(subject ? "" : t("contact_subject_required"));
+    contentField.setCustomValidity(content ? "" : t("contact_content_required"));
     if (!contactForm.reportValidity()) return;
 
     const mailtoUrl = `mailto:contact@dango-cubed.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(content)}`;

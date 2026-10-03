@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="theme-color" content="#FFC6BD">
+    <meta name="color-scheme" content="light">
+    <script>
+      try {
+        if (localStorage.getItem("language") === "tw") {
+          document.documentElement.lang = "zh-Hant-TW";
+        }
+      } catch {}
+    </script>
     <title>Dango³🍡</title>
     <link rel="stylesheet" href="/style.css">
     <!-- fontawesome -->
@@ -17,51 +25,52 @@
   <body>
     <div class="language-toggle">
       <label class="language-toggle-label">
-        <input type="checkbox" id="language-checkbox" aria-label="Toggle language">
+        <input type="checkbox" id="language-checkbox" data-i18n-aria-label="language_toggle">
         <img class="language-toggle-icon" src="/images/language.svg" alt="">
       </label>
     </div>
     <div class="container">
       <!-- Logo -->
-      <img src="/images/logo.webp">
+      <img src="/images/logo.webp" alt="" data-i18n-alt="logo_alt">
       <div class="social-intro-group">
         <!-- Social Icons -->
         <div class="social-icons">
-        <a href="https://www.youtube.com/@DangoCubed" target="_blank" rel="noopener noreferrer" title="Youtube" class="blue-themed">
+        <a href="https://www.youtube.com/@DangoCubed" target="_blank" rel="noopener noreferrer" data-i18n-title="social_youtube" class="blue-themed">
           <i class="fab fa-youtube"></i>
         </a>
-        <a href="https://www.instagram.com/dangocubed" target="_blank" rel="noopener noreferrer" title="Instagram" class="red-themed">
+        <a href="https://www.instagram.com/dangocubed" target="_blank" rel="noopener noreferrer" data-i18n-title="social_instagram" class="red-themed">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://www.tiktok.com/@dangocubed" target="_blank" rel="noopener noreferrer" title="Tiktok" class="yellow-themed">
+        <a href="https://www.tiktok.com/@dangocubed" target="_blank" rel="noopener noreferrer" data-i18n-title="social_tiktok" class="yellow-themed">
           <i class="fab fa-tiktok"></i>
         </a>
-        <a href="https://x.com/DangoCubed" target="_blank" rel="noopener noreferrer" title="X (Twitter)" class="red-themed">
+        <a href="https://x.com/DangoCubed" target="_blank" rel="noopener noreferrer" data-i18n-title="social_x" class="red-themed">
           <i class="fab fa-x-twitter"></i>
         </a>
-        <a href="https://www.facebook.com/DangoCubed" target="_blank" rel="noopener noreferrer" title="Facebook" class="blue-themed">
+        <a href="https://www.facebook.com/DangoCubed" target="_blank" rel="noopener noreferrer" data-i18n-title="social_facebook" class="blue-themed">
           <i class="fab fa-facebook"></i>
         </a>
-        <a href="https://www.twitch.tv/dangocubed" target="_blank" rel="noopener noreferrer" title="Twitch" class="red-themed">
+        <a href="https://www.twitch.tv/dangocubed" target="_blank" rel="noopener noreferrer" data-i18n-title="social_twitch" class="red-themed">
           <i class="fab fa-twitch"></i>
         </a>
-        <a href="https://discord.dango-cubed.com" target="_blank" rel="noopener noreferrer" title="Discord" class="yellow-themed">
+        <a href="https://discord.dango-cubed.com" target="_blank" rel="noopener noreferrer" data-i18n-title="social_discord" class="yellow-themed">
           <i class="fab fa-discord"></i>
         </a>
         </div>
         <!-- Intro -->
         <div class="intro-section">
-          <p>Meet Dango³🍡 (pronounced "dongo cubed"), the three best friends on the internet!<br>Find us through the social media links above, or tag your posts using <a class="intro-hashtag" href="https://x.com/hashtag/DangoCubed" target="_blank" rel="noopener noreferrer">#DangoCubed</a></p>
+          <p><span data-i18n="intro_greeting"></span><br><span data-i18n="intro_social_prompt"></span><a class="intro-hashtag" href="https://x.com/hashtag/DangoCubed" target="_blank" rel="noopener noreferrer" data-i18n="intro_hashtag"></a></p>
         </div>
       </div>
       <div class="cards-grid">
         <!-- Video Embed Card-->
         <div class="card">
-          <span class="card-title red-themed">Introducing: Dango³ ! (WIP...)</span>
+          <span class="card-title red-themed" data-i18n="video_card_title"></span>
           <div class="card-wrapper red-themed">
             <iframe
               src="https://www.youtube-nocookie.com/embed/a3EsqbDsl5A"
-              title="Dango Cubed Intro"
+              title=""
+              data-i18n-title="video_iframe_title"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
               frameborder="0"
@@ -70,55 +79,55 @@
         </div>
         <!-- Member Card -->
         <div class="card">
-          <span class="card-title blue-themed">Choose Your Dango! (WIP...)</span>
+          <span class="card-title blue-themed" data-i18n="member_card_title"></span>
           <div class="card-wrapper member-wrapper blue-themed">
             <!-- Omu -->
             <div class="member">
-              <img class="blue-themed" src="/images/member/omu-profile.webp">
-              <span class="blue-themed">Omu</span>
-              <small class="member-description">the Crybaby</small>
+              <img class="blue-themed" src="/images/member/omu-profile.webp" alt="" data-i18n-alt="member_omu_alt">
+              <span class="blue-themed" data-i18n="member_omu_name"></span>
+              <small class="member-description" data-i18n="member_omu_description"></small>
             </div>
             <!-- Momiji -->
             <div class="member">
-              <img class="red-themed" src="/images/member/momiji-profile.webp">
-              <span class="red-themed">Momiji</span>
-              <small class="member-description">the Leader</small>
+              <img class="red-themed" src="/images/member/momiji-profile.webp" alt="" data-i18n-alt="member_momiji_alt">
+              <span class="red-themed" data-i18n="member_momiji_name"></span>
+              <small class="member-description" data-i18n="member_momiji_description"></small>
             </div>
             <!-- SAL -->
             <div class="member">
-              <img class="yellow-themed" src="/images/member/sal-profile.webp">
-              <span class="yellow-themed">Sal</span>
-              <small class="member-description">the Asshole</small>
+              <img class="yellow-themed" src="/images/member/sal-profile.webp" alt="" data-i18n-alt="member_sal_alt">
+              <span class="yellow-themed" data-i18n="member_sal_name"></span>
+              <small class="member-description" data-i18n="member_sal_description"></small>
             </div>
           </div>
         </div>
         <!-- News Card -->
         <div class="card">
-          <span class="card-title yellow-themed">News From Us!</span>
+          <span class="card-title yellow-themed" data-i18n="news_card_title"></span>
           <div class="card-wrapper yellow-themed">
             <div class="loop-gallery" data-source="/data/news.json">
-              <button type="button" class="loop-arrow loop-arrow-left">&#10094;</button>
-              <img class="loop-image is-active" alt="loop image 1">
-              <img class="loop-image" alt="loop image 2">
-              <button type="button" class="loop-arrow loop-arrow-right">&#10095;</button>
+              <button type="button" class="loop-arrow loop-arrow-left" data-i18n-aria-label="news_previous"><span aria-hidden="true">&#10094;</span></button>
+              <img class="loop-image is-active" alt="" data-i18n-alt="news_image_one_alt">
+              <img class="loop-image" alt="" data-i18n-alt="news_image_two_alt">
+              <button type="button" class="loop-arrow loop-arrow-right" data-i18n-aria-label="news_next"><span aria-hidden="true">&#10095;</span></button>
             </div>
           </div>
         </div>
         <!-- Contact Card -->
         <div class="card">
-          <span class="card-title red-themed">Contact Us :D</span>
+          <span class="card-title red-themed" data-i18n="contact_card_title"></span>
           <div class="card-wrapper contact-wrapper red-themed">
             <form class="contact-form" id="contact-form">
               <div class="contact-field contact-subject">
-                <label for="contact-subject">Subject:</label>
-                <input id="contact-subject" name="subject" type="text" maxlength="150" placeholder="e.g., Collaboration inquiry" required>
+                <label for="contact-subject" data-i18n="contact_subject_label"></label>
+                <input id="contact-subject" name="subject" type="text" maxlength="150" placeholder="" data-i18n-placeholder="contact_subject_placeholder" required>
               </div>
               <div class="contact-field contact-message-field">
-                <label for="contact-content">Message:</label>
-                <textarea id="contact-content" name="content" maxlength="3000" placeholder="e.g., Hi! I'd like to collab with Dango Cubed!!" required></textarea>
+                <label for="contact-content" data-i18n="contact_message_label"></label>
+                <textarea id="contact-content" name="content" maxlength="3000" placeholder="" data-i18n-placeholder="contact_message_placeholder" required></textarea>
               </div>
-              <button class="contact-send" type="submit">Send</button>
-              <p class="contact-note">Contact us for business inquiries, or any other matter as you like!</p>
+              <button class="contact-send" type="submit" data-i18n="contact_send"></button>
+              <p class="contact-note" data-i18n="contact_note"></p>
             </form>
           </div>
         </div>
@@ -127,7 +136,7 @@
         <svg viewBox="0 0 64 32" aria-hidden="true" focusable="false">
           <path d="M8 26 32 6l24 20" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
-        <span>Back to Top</span>
+        <span data-i18n="back_to_top"></span>
       </button>
       <footer>
         <span>
@@ -140,6 +149,8 @@
         </span>
       </footer>
     </div>
+    <script src="/translations/en.js"></script>
+    <script src="/translations/tw.js"></script>
     <script src="/script.js"></script>
   </body>
 </html>

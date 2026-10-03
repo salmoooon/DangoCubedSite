@@ -89,6 +89,10 @@ body {
   transition: rotate 600ms ease-in-out;
 }
 
+.language-toggle-icon.no-transition {
+  transition: none;
+}
+
 #language-checkbox:checked + .language-toggle-icon {
   rotate: 360deg;
 }
@@ -359,7 +363,7 @@ body {
   background-color: var(--themed-member-bg);
 }
 
-.member span {
+.member > span {
   width: 4rem;
   max-width: 100%;
   margin: 0.5rem auto 0;
