@@ -9,7 +9,7 @@ window.translationChunks.tw = {
     social_facebook: "Facebook 粉專",
     social_twitch: "Twitch 頻道",
     social_discord: "Discord 伺服器",
-    intro_greeting: "認識 Dango³🍡（唸作 當狗ㄎㄧㄨ ㄅㄨㄉ），網際網路上最要好的三個朋友！",
+    intro_greeting: "歡迎光臨 Dango³🍡（唸作 當狗ㄎㄧㄨ ㄅㄨㄉ），網際網路上最要好的三個朋友！我們製作英文為主的內容，但也歡迎講中文的各位跟我們一起瞎搞 :D",
     intro_social_prompt: "點擊上方的社群媒體連結找到我們，或在發文時加上標籤：",
     intro_hashtag: "#DangoCubed",
     video_card_title: "認識 Dango³！（製作中⋯）",
