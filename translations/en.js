@@ -54,7 +54,7 @@ window.translationChunks.en = {
     member_momiji_full_name: "Kumano Momiji",
     member_momiji_title: "The Genki Dango",
     member_momiji_intro: "Leader of Dango³. Loves anything that's fun and enjoys making friends!",
-    member_momiji_details: "Biggest wish: to put a smile on everyone's face and make Dango³ the source of happiness!",
+    member_momiji_details: "Favorite: Put a smile on everyone's face!<br>Least favorite: salmoooon!<br>Biggest wish: Make Dango³ the source of happiness!",
     member_sal_full_name: "salmoooon",
     member_sal_title: "The Edgy Dango",
     member_sal_intro: "That one friend you wish you'd never met, but it's already too late...",

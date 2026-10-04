@@ -54,7 +54,7 @@ window.translationChunks.tw = {
     member_momiji_full_name: "Kumano Momiji",
     member_momiji_title: "元氣 Dango",
     member_momiji_intro: "Dango³ 的隊長，喜歡一切看起來好玩的事物！喜歡跟各式各樣的人當朋友！想跟很多很多人一起玩！",
-    member_momiji_details: "最大的願望是看到大家的笑容！希望 Dango³ 的存在能讓大家感到快樂！",
+    member_momiji_details: "最喜歡的東西是大家的笑容！<br>最討厭的東西是salmoooon！<br>希望 Dango³ 的存在能讓大家感到快樂！",
     member_sal_full_name: "salmoooon",
     member_sal_title: "中二 Dango",
     member_sal_intro: "那個你最後悔認識的爛朋友，當發現的時候已經太遲了…",
