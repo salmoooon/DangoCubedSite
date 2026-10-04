@@ -38,7 +38,6 @@ html {
 * {
   box-sizing: border-box;
   font-family: var(--font);
-  font-weight: 400;
   font-style: normal;
 }
 
@@ -418,19 +417,11 @@ body {
   position: relative;
   max-height: 90dvh;
   overflow: auto;
-  padding: 2rem 1.5rem 1.5rem;
+  padding: 1.5rem;
   border: 1px solid var(--border);
   border-radius: 1rem;
   background: var(--themed-member-bg);
   box-shadow: 0 0 0 8px var(--white);
-}
-
-.member-lightbox-title {
-  margin: 0;
-  padding: 0 2rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  text-align: center;
 }
 
 .member-lightbox-close {
@@ -456,8 +447,65 @@ body {
 }
 
 .member-lightbox-content {
-  min-height: 12rem;
+  margin-top: 0;
+}
+
+.member-lightbox-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: start;
+  gap: 1rem;
+}
+
+.member-lightbox-layout[hidden] {
+  display: none;
+}
+
+.member-lightbox-info {
+  min-width: 0;
+}
+
+.member-lightbox-info section + section {
   margin-top: 1rem;
+}
+
+.member-lightbox-info h3 {
+  margin: 0 0 0.25rem;
+}
+
+.member-lightbox-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.member-lightbox-social-icons {
+  --social-icon-size: 2rem;
+  --social-bar-width: clamp(1rem, 6vw, 4rem);
+  --social-gap: 0.5rem;
+  justify-content: center;
+  gap: var(--social-gap);
+  width: 100%;
+  margin: 1.5rem 0 0;
+}
+
+.member-lightbox-small-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 1.5rem;
+}
+
+.member-lightbox-image {
+  margin-top: 2rem;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 65dvh;
+  justify-self: center;
+  object-fit: contain;
 }
 
 .loop-gallery {

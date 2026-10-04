@@ -59,7 +59,12 @@
         </div>
         <!-- Intro -->
         <div class="intro-section">
-          <p><span data-i18n="intro_greeting"></span><br><span data-i18n="intro_social_prompt"></span><a class="intro-hashtag" href="https://x.com/hashtag/DangoCubed" target="_blank" rel="noopener noreferrer" data-i18n="intro_hashtag"></a></p>
+          <p>
+            <span data-i18n="intro_greeting"></span>
+            <br>
+            <span data-i18n="intro_social_prompt"></span>
+            <a class="intro-hashtag" href="https://x.com/hashtag/DangoCubed" target="_blank" rel="noopener noreferrer" data-i18n="intro_hashtag"></a>
+          </p>
         </div>
       </div>
       <div class="cards-grid">
@@ -82,19 +87,19 @@
           <span class="card-title blue-themed" data-i18n="member_card_title"></span>
           <div class="card-wrapper member-wrapper blue-themed">
             <!-- Omu -->
-            <button class="member" type="button" aria-haspopup="dialog" aria-controls="member-lightbox">
+            <button class="member" type="button" aria-haspopup="dialog" aria-controls="member-lightbox" data-member-template="member-omu-details">
               <img class="blue-themed" src="/images/member/omu-profile.webp" alt="" data-i18n-alt="member_omu_alt">
               <span class="blue-themed" data-i18n="member_omu_name"></span>
               <small class="member-description" data-i18n="member_omu_description"></small>
             </button>
             <!-- Momiji -->
-            <button class="member" type="button" aria-haspopup="dialog" aria-controls="member-lightbox">
+            <button class="member" type="button" aria-haspopup="dialog" aria-controls="member-lightbox" data-member-template="member-momiji-details">
               <img class="red-themed" src="/images/member/momiji-profile.webp" alt="" data-i18n-alt="member_momiji_alt">
               <span class="red-themed" data-i18n="member_momiji_name"></span>
               <small class="member-description" data-i18n="member_momiji_description"></small>
             </button>
             <!-- SAL -->
-            <button class="member" type="button" aria-haspopup="dialog" aria-controls="member-lightbox">
+            <button class="member" type="button" aria-haspopup="dialog" aria-controls="member-lightbox" data-member-template="member-sal-details">
               <img class="yellow-themed" src="/images/member/sal-profile.webp" alt="" data-i18n-alt="member_sal_alt">
               <span class="yellow-themed" data-i18n="member_sal_name"></span>
               <small class="member-description" data-i18n="member_sal_description"></small>
@@ -149,14 +154,100 @@
         </span>
       </footer>
     </div>
-    <dialog class="member-lightbox" id="member-lightbox" aria-labelledby="member-lightbox-title">
+    <template id="member-omu-details">
+      <div class="member-lightbox-layout">
+        <div class="member-lightbox-info">
+          <section>
+            <h3 data-i18n="member_omu_full_name"></h3>
+            <p data-i18n="member_omu_title"></p>
+          </section>
+          <section>
+            <p data-i18n="member_omu_intro"></p>
+          </section>
+          <section>
+            <p data-i18n="member_omu_details"></p>
+          </section>
+          <div class="social-icons member-lightbox-social-icons">
+            <a href="https://omurice-kun.com" target="_blank" rel="noopener noreferrer" title="" data-i18n-title="social_link_site" class="yellow-themed">
+              <i class="fa-solid fa-link" aria-hidden="true"></i>
+            </a>
+            <a href="https://x.com/yoyo091600" target="_blank" rel="noopener noreferrer" title="" data-i18n-title="social_x" class="red-themed">
+              <i class="fab fa-x-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://discord.omurice-kun.com/" target="_blank" rel="noopener noreferrer" title="" data-i18n-title="social_discord" class="blue-themed">
+              <i class="fab fa-discord" aria-hidden="true"></i>
+            </a>
+          </div>
+          <img class="member-lightbox-small-image" src="/images/member/omu-small.webp" alt="">
+        </div>
+        <img class="member-lightbox-image" src="/images/member/omu-full-body.webp" alt="" data-i18n-alt="member_omu_full_body_alt">
+      </div>
+    </template>
+    <template id="member-momiji-details">
+      <div class="member-lightbox-layout">
+        <div class="member-lightbox-info">
+          <section>
+            <h3 data-i18n="member_momiji_full_name"></h3>
+            <p data-i18n="member_momiji_title"></p>
+          </section>
+          <section>
+            <p data-i18n="member_momiji_intro"></p>
+          </section>
+          <section>
+            <p data-i18n="member_momiji_details"></p>
+          </section>
+          <div class="social-icons member-lightbox-social-icons">
+            <a href="https://lit.link/Kumanomomiji" target="_blank" rel="noopener noreferrer" title="" data-i18n-title="social_link_site" class="yellow-themed">
+              <i class="fa-solid fa-link" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.youtube.com/@Kumano_momiji" target="_blank" rel="noopener noreferrer" title="" data-i18n-title="social_youtube" class="red-themed">
+              <i class="fab fa-youtube" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.twitch.tv/momiji_thebear" target="_blank" rel="noopener noreferrer" title="" data-i18n-title="social_twitch" class="blue-themed">
+              <i class="fab fa-twitch" aria-hidden="true"></i>
+            </a>
+          </div>
+          <img class="member-lightbox-small-image" src="/images/member/momiji-small.webp" alt="">
+        </div>
+        <img class="member-lightbox-image" src="/images/member/momiji-full-body.webp" alt="" data-i18n-alt="member_momiji_full_body_alt">
+      </div>
+    </template>
+    <template id="member-sal-details">
+      <div class="member-lightbox-layout">
+        <div class="member-lightbox-info">
+          <section>
+            <h3 data-i18n="member_sal_full_name"></h3>
+            <p data-i18n="member_sal_title"></p>
+          </section>
+          <section>
+            <p data-i18n="member_sal_intro"></p>
+          </section>
+          <section>
+            <p data-i18n="member_sal_details"></p>
+          </section>
+          <div class="social-icons member-lightbox-social-icons">
+            <a href="https://nicotine.buzz" target="_blank" rel="noopener noreferrer" title="" data-i18n-title="social_website" class="yellow-themed">
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            </a>
+            <a href="https://discordapp.com/users/102067807251869696" target="_blank" rel="noopener noreferrer" title="" data-i18n-title="social_discord" class="blue-themed">
+              <i class="fab fa-discord" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:salmoooon@nicotine.buzz" target="_blank" rel="noopener noreferrer" title="" data-i18n-title="social_email" class="red-themed">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            </a>
+          </div>
+          <img class="member-lightbox-small-image" src="/images/member/sal-small.webp" alt="">
+        </div>
+        <img class="member-lightbox-image" src="/images/member/sal-full-body.webp" alt="" data-i18n-alt="member_sal_full_body_alt">
+      </div>
+    </template>
+    <dialog class="member-lightbox" id="member-lightbox" aria-label="" data-i18n-aria-label="member_lightbox_label">
       <div class="member-lightbox-window">
         <button class="member-lightbox-close" type="button" data-i18n-aria-label="member_lightbox_close">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
           </svg>
         </button>
-        <h2 class="member-lightbox-title" id="member-lightbox-title"></h2>
         <div class="member-lightbox-content"></div>
       </div>
     </dialog>

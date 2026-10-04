@@ -405,22 +405,34 @@ document.querySelector(".back-to-top-button")?.addEventListener("click", () => {
 
 // Lightbox
 const memberLightbox = document.querySelector("#member-lightbox");
-const memberLightboxTitle = memberLightbox?.querySelector(".member-lightbox-title");
 const memberLightboxWindow = memberLightbox?.querySelector(".member-lightbox-window");
+const memberLightboxContent = memberLightbox?.querySelector(".member-lightbox-content");
 const memberThemeClasses = ["blue-themed", "red-themed", "yellow-themed"];
 
 document.querySelectorAll(".member[aria-controls='member-lightbox']").forEach(member => {
+  const detailsTemplate = document.getElementById(member.dataset.memberTemplate);
+  const detailsPanel = detailsTemplate?.content.firstElementChild?.cloneNode(true);
+  if (!memberLightbox || !memberLightboxWindow || !memberLightboxContent || !detailsPanel) return;
+
+  detailsPanel.hidden = true;
+  detailsPanel.querySelectorAll("img").forEach(image => {
+    image.loading = "eager";
+  });
+  memberLightboxContent.appendChild(detailsPanel);
+
   member.addEventListener("click", () => {
-    const name = member.querySelector(":scope > span")?.textContent.trim();
     const theme = memberThemeClasses.find(themeClass => member.querySelector("img")?.classList.contains(themeClass));
-    if (!memberLightbox || !memberLightboxTitle || !memberLightboxWindow || !name) return;
 
     memberLightboxWindow.classList.remove(...memberThemeClasses);
     if (theme) memberLightboxWindow.classList.add(theme);
-    memberLightboxTitle.textContent = name;
+    Array.from(memberLightboxContent.children).forEach(panel => {
+      panel.hidden = panel !== detailsPanel;
+    });
     memberLightbox.showModal();
   });
 });
+
+applyTranslations();
 
 memberLightbox?.querySelector(".member-lightbox-close")?.addEventListener("click", () => {
   memberLightbox.close();
