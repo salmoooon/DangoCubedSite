@@ -5,7 +5,7 @@
   --white: #F2F2F2;
   --wooden-stick: #E58F68;
   --shadow: rgba(0, 0, 0, 0.5);
-  --footer: #616161;
+  --text-alt: #616161;
   --dango-blue: #7BCCE7;
   --dango-blue-alt: #5BB1D3;
   --dango-red: #FFC6BD;
@@ -417,7 +417,7 @@ body {
   position: relative;
   max-height: 90dvh;
   overflow: auto;
-  padding: 1.5rem;
+  padding: 1.5rem 0 1.5rem 1.5rem;
   border: 1px solid var(--border);
   border-radius: 1rem;
   background: var(--themed-member-bg);
@@ -478,6 +478,10 @@ body {
   font-size: 0.8rem;
   line-height: 1.4;
   overflow-wrap: anywhere;
+}
+
+.member-lightbox-info p[data-i18n$="_title"] {
+  color: var(--text-alt);
 }
 
 .member-lightbox-social-icons {
@@ -750,7 +754,7 @@ body {
 }
 
 .contact-field :is(input, textarea)::placeholder {
-  color: var(--footer);
+  color: var(--text-alt);
   opacity: 0.7;
 }
 
@@ -835,7 +839,7 @@ body {
 }
 
 footer {
-  color: var(--footer);
+  color: var(--text-alt);
   text-align: center;
   margin-top: 3rem;
   font-size: 0.8rem;
