@@ -50,7 +50,7 @@ window.translationChunks.en = {
     member_omu_full_name: "Omurice",
     member_omu_title: "The Good-Guy Dango",
     member_omu_intro: "Loves drawing, treats everyone too nicely, and loves gaming but sucks at competitive games.",
-    member_omu_details: "Eats almost all kinds of food (with exceptions). Plays guitar(s)!",
+    member_omu_details: "Eats almost all kinds of food (with exceptions).<br>Plays guitar(s)!",
     member_momiji_full_name: "Kumano Momiji",
     member_momiji_title: "The Genki Dango",
     member_momiji_intro: "Leader of Dango³. Loves anything that's fun and enjoys making friends!",
@@ -58,5 +58,5 @@ window.translationChunks.en = {
     member_sal_full_name: "salmoooon",
     member_sal_title: "The Edgy Dango",
     member_sal_intro: "That one friend you wish you'd never met, but it's already too late...",
-    member_sal_details: "Does a little bit of everything, but also nothing. Treats Momiji as his biggest enemy for no particular reason."
+    member_sal_details: "Does a little bit of everything, but also nothing. Treats Momiji as his biggest enemy for no particular reason.<br>Smokes a lot."
 };
