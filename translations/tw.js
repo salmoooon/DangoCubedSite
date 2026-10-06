@@ -58,5 +58,5 @@ window.translationChunks.tw = {
     member_sal_full_name: "salmoooon",
     member_sal_title: "中二 Dango",
     member_sal_intro: "那個你最後悔認識的爛朋友，當發現的時候已經太遲了…",
-    member_sal_details: "什麼都會一點，但又好像什麼都不會。莫名的把 Momiji 當成一切事物的假想敵"
+    member_sal_details: "什麼都會一點，但又好像什麼都不會。莫名的把 Momiji 當成一切事物的假想敵<br>抽很多菸"
 };
