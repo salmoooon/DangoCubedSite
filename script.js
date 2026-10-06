@@ -422,6 +422,9 @@ let cardAnimationFrame = 0;
 let activeCardIndex = 0;
 let cardDrag = null;
 let suppressCardClick = false;
+let memberSwipeHintUsed = false;
+let memberSwipeHintTimer = 0;
+let memberSwipeHintFrame = 0;
 
 document.querySelectorAll(".member[aria-controls='member-lightbox']").forEach(member => {
   const detailsPanel = document.getElementById(member.dataset.memberTemplate)?.content.firstElementChild?.cloneNode(true);
@@ -515,7 +518,46 @@ function animateMemberCards() {
   cardAnimationFrame = requestAnimationFrame(step);
 }
 
+function cancelMemberSwipeHint() {
+  clearTimeout(memberSwipeHintTimer);
+  cancelAnimationFrame(memberSwipeHintFrame);
+  memberSwipeHintTimer = 0;
+  memberSwipeHintFrame = 0;
+}
+
+function scheduleMemberSwipeHint() {
+  if (memberSwipeHintUsed) return;
+  memberSwipeHintUsed = true;
+  if (reducedMotionQuery.matches) return;
+
+  memberSwipeHintTimer = setTimeout(() => {
+    memberSwipeHintTimer = 0;
+    if (!memberLightbox.open || reducedMotionQuery.matches) return;
+
+    const startPosition = cardTarget;
+    const startTime = performance.now();
+    const step = now => {
+      if (!memberLightbox.open) {
+        cancelMemberSwipeHint();
+        return;
+      }
+      const progress = Math.min((now - startTime) / 900, 1);
+      if (progress === 1 || reducedMotionQuery.matches) {
+        cardPosition = startPosition;
+        memberSwipeHintFrame = 0;
+        renderMemberCards();
+        return;
+      }
+      cardPosition = startPosition + 0.1 * Math.sin(Math.PI * progress) ** 2;
+      renderMemberCards();
+      memberSwipeHintFrame = requestAnimationFrame(step);
+    };
+    memberSwipeHintFrame = requestAnimationFrame(step);
+  }, 1000);
+}
+
 function moveMemberCardsTo(target) {
+  cancelMemberSwipeHint();
   const count = memberCards.length;
   cardTarget = target;
   setActiveMemberCard(((target % count) + count) % count);
@@ -523,6 +565,7 @@ function moveMemberCardsTo(target) {
 }
 
 function openMemberLightbox(index) {
+  cancelMemberSwipeHint();
   cancelAnimationFrame(cardAnimationFrame);
   cardPosition = cardTarget = index;
   cardVelocity = 0;
@@ -534,6 +577,7 @@ function openMemberLightbox(index) {
   memberLightbox.showModal();
   measureCardSpacing();
   renderMemberCards();
+  scheduleMemberSwipeHint();
 }
 
 function memberCardIndexAt(x, y) {
@@ -603,6 +647,7 @@ memberLightbox?.addEventListener("pointermove", event => {
     }
 
     cardDrag.axis = "x";
+    cancelMemberSwipeHint();
     cancelAnimationFrame(cardAnimationFrame);
     // Rebase so the cards continue from wherever an in-flight animation left them.
     cardDrag.startPosition = cardPosition + deltaX / cardSpacing;
@@ -655,6 +700,7 @@ document.addEventListener("keydown", event => {
 });
 
 memberLightbox?.addEventListener("close", () => {
+  cancelMemberSwipeHint();
   cancelAnimationFrame(cardAnimationFrame);
   cardDrag = null;
   memberLightbox.classList.remove("is-dragging");
